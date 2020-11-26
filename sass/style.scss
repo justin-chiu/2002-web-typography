@@ -51,18 +51,23 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    padding-top: 3.2rem;
-    padding-left: $section-padding-sides;
-    padding-right: $section-padding-sides;
+    padding-top: 4.8rem;
     padding-bottom: 7.2rem;
     border-bottom-style: solid;
     border-bottom-width: 1px;
 
+    .headline-container {
+        max-width: $main-width;
+        width: 100%;
+        padding: 0 $section-padding-sides;
+    }
+
     h1 {
         font-family: acumin-pro, sans-serif;
         font-weight: 700;
-        font-size: 6rem;
+        font-size: 6.2rem;
         line-height: 1.1em;
         margin-bottom: 0.3em;
     }
@@ -89,11 +94,6 @@ header {
         font-style: italic;
     }
 
-    @media(min-width: 1366px){
-        height: 60vh;
-        h1 {font-size: 8rem;}
-    }
-
     figure {
         position: absolute;
         right: 0;
@@ -103,6 +103,15 @@ header {
         height: 100%;
         margin: 0;
         z-index: -10;
+    }
+
+    @media(min-width: 1366px){
+        //* height: 60vh;
+        h1 {font-size: 8rem;}
+        .headline-container {
+            max-width: 1680px;
+            width: auto;
+        }
     }
 
 }
