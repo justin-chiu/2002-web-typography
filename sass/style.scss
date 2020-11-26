@@ -1,10 +1,9 @@
 $breakpoint-1: 1366px;
-$header-spaceafter: 2.3rem;
 $section-padding-sides: 4.8rem;
 $main-width: 1010px;
-$col-1: 38%;
-$col-2: 62%;
-$main-inner-padding: 2.4rem;
+$col-1: 33%;
+$col-2: 67%;
+$main-inner-padding: 3.2rem;
 
 * {
     box-sizing: border-box;
@@ -34,7 +33,7 @@ em,strong {
 
 p {
     font-family: 'Crimson Pro', serif;
-    font-size: 1.8rem;
+    font-size: 2rem;
     line-height: 1.5em;
     max-width: $col-2;
     margin-bottom: 1.2em;
@@ -65,7 +64,7 @@ header {
         font-weight: 700;
         font-size: 6rem;
         line-height: 1.1em;
-        margin-bottom: $header-spaceafter;
+        margin-bottom: 0.3em;
     }
     
     h2 {
@@ -73,14 +72,14 @@ header {
         font-weight: 400;
         font-size: 3.2rem;
         line-height: 1.2em;
-        margin-bottom: $header-spaceafter;
+        margin-bottom: 1em;
     }
     
     .slug {
         font-family: 'Crimson Pro', serif;
         font-size: 2.3rem;
         line-height: 1.2em;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1em;
     }
     
     .author {
@@ -123,6 +122,7 @@ section {
 }
 
 blockquote {
+    position: relative;
     margin: 0;
     width: 100%;
     display: flex;
@@ -137,11 +137,42 @@ blockquote {
 .quote {
     width: $col-2;
     padding-left: $main-inner-padding;
+    border-left-style: solid;
+    border-left-width: 1px;
+    margin-bottom: 2.4rem;
+}
+
+.quote-text {
+    font-size: 3rem;
+    line-height: 1.3em;
+    margin-bottom: 0.6em;
+}
+
+.quote-author {
+    font-family: acumin-pro, sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0;
 }
 
 .source {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: $col-1;
     padding-right: $main-inner-padding;
+
+}
+
+.source-text {
+    font-weight: 500;
+}
+
+.source-ref {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    overflow-wrap: break-word;
 }
 
 sup {
