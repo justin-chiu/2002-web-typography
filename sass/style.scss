@@ -107,10 +107,9 @@ header {
 
     @media(min-width: 1366px){
         //* height: 60vh;
-        h1 {font-size: 8rem;}
+        h1 {font-size: 8.6rem;}
         .headline-container {
-            max-width: 1680px;
-            width: auto;
+            max-width: 1337px;
         }
     }
 
@@ -173,8 +172,17 @@ blockquote {
 
 }
 
+.source-number {
+    font-size: 3rem;
+    line-height: 1.3em;
+    margin-bottom: 0.6em;
+    font-weight: 600;
+}
+
 .source-text {
-    font-weight: 500;
+    font-size: 1.65rem;
+    font-weight: 600;
+    &.outdent {text-indent: -0.43em;}
 }
 
 .source-ref {
@@ -182,8 +190,14 @@ blockquote {
     font-weight: 400;
     font-size: 1.4rem;
     overflow-wrap: break-word;
+    &.outdent {text-indent: -0.37em;}
 }
 
 sup {
+    position: relative;
     vertical-align: top;
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.7em;
+    top: -0.24em;
+    margin-left: 0.2em;
 }
