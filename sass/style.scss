@@ -5,6 +5,8 @@ $col-1: 33%;
 $col-2: 67%;
 $main-inner-padding: 3.2rem;
 
+$colour-1: #e9e9e9;
+
 * {
     box-sizing: border-box;
     font-size: 10px;
@@ -37,14 +39,52 @@ p {
     font-weight: 400;
     line-height: 1.5em;
     max-width: $col-2;
+    width: 100%;
     margin-bottom: 1.2em;
     padding-left: $main-inner-padding;
 }
 
-article {
+nav {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    padding: 2.8rem 4.8rem 3.2rem 4.8rem;
+
+    .logo {
+
+        & :first-child {
+        font-family: 'Crimson Pro', serif;
+        font-size: 5rem;
+        font-weight: 400;
+        text-align: center;
+        letter-spacing: 0.05em;
+        }
+
+        & :last-child {
+            font-family: 'Work Sans', sans serif;
+            font-size: 2rem;
+            text-align: center;
+        }
+    }
+
+    .menu, .spacer {
+        height: 4rem;
+        width: 4rem;
+
+        .line {
+            height: 2px;
+            width: 100%;
+            background-color: black;
+            margin-bottom: 1rem;
+
+            &.last {margin-bottom: 0;}
+        }
+
+    }
+}
+
+article {
 }
 
 header {
@@ -108,18 +148,30 @@ header {
 }
 
 main {
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.alt-bg {
+    background-color: $colour-1;
+}
+
+.section-wrapper {
     max-width: $main-width;
     padding-top: 7.2rem;
     padding-left: $section-padding-sides;
     padding-right: $section-padding-sides;
-    padding-bottom: 3.2rem;
-}
-
-section {
+    padding-bottom: 7.2rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 }
+
 
 blockquote {
     position: relative;
@@ -165,6 +217,10 @@ blockquote {
     padding-right: $main-inner-padding;
     
     //* p {opacity: 0;}
+
+    .source-ref {
+        margin-bottom: 0;
+    }
 }
 
 .source-number {
@@ -184,7 +240,6 @@ blockquote {
     font-family: 'Work Sans', sans-serif;
     font-weight: 400;
     font-size: 1.4rem;
-    margin-bottom: 0;
     overflow-wrap: break-word;
     &.outdent {text-indent: -0.37em;}
 }
