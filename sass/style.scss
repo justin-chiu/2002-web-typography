@@ -1,15 +1,22 @@
 $breakpoint-1: 1366px;
 $breakpoint-2: 1112px;
-$breakpoint-3: 576px;
+$breakpoint-3: 530px;
 $section-padding-sides: 4.8rem;
-$section-padding-sides-small: 3.2rem;
+$section-padding-sides-small: 2.6rem;
 $main-width: 1010px;
 $two-thirds-width: 676px;
+$one-col: 302px;
 $col-1: 33%;
 $col-2: 67%;
-$main-inner-padding: 3.2rem;
+$main-inner-padding: 2.4rem;
 
 $colour-1: #e9e9e9;
+$colour-2: #ffffff;
+$colour-3: #000000;
+
+@media (min-width: $breakpoint-3) {
+    $main-inner-padding: 3.2rem;
+}
 
 * {
     box-sizing: border-box;
@@ -31,23 +38,29 @@ p,h1,h2,h3,h4,h5,h6 {
     margin: 0;
 }
 
-em,strong {
+em,strong, a, .small-caps {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
 }
 
+.small-caps {
+    font-variant: small-caps;
+}
+
 p {
     font-family: 'Crimson Pro', serif;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 400;
-    line-height: 1.5em;
+    line-height: 1.7em;
     width: 100%;
     margin-bottom: 1.2em;
-    padding-left: $main-inner-padding;
-    padding-right: $main-inner-padding;
+    padding-left: $section-padding-sides-small;
+    padding-right: $section-padding-sides-small;
 
     @media (min-width: $breakpoint-3) {
+        font-size: 2rem;
+        padding-left: $main-inner-padding;
         padding-right: 0;
     }
 
@@ -67,7 +80,7 @@ nav {
 
         & :first-child {
         font-family: 'Crimson Pro', serif;
-        font-size: 5rem;
+        font-size: 2.4rem;
         font-weight: 400;
         text-align: center;
         letter-spacing: 0.05em;
@@ -75,14 +88,23 @@ nav {
 
         & :last-child {
             font-family: 'Work Sans', sans serif;
-            font-size: 2rem;
+            font-size: 1.4rem;
             text-align: center;
+        }
+
+        @media(min-width: $breakpoint-3) {
+            & :first-child {
+                font-size: 5rem;
+            }
+
+            & :last-child {
+                font-size: 2rem;
+            }
         }
     }
 
     .menu, .spacer {
-        height: 4rem;
-        width: 4rem;
+        width: 3rem;
 
         .line {
             height: 2px;
@@ -97,6 +119,9 @@ nav {
 
     @media (min-width: $breakpoint-3) {
         padding: 2.8rem $section-padding-sides 3.2rem $section-padding-sides;
+        .menu, .spacer {
+            width: 4rem;
+        }
     }
 }
 
@@ -114,17 +139,23 @@ header {
     padding-bottom: 7.2rem;
     border-bottom-style: solid;
     border-bottom-width: 1px;
+    background-color: $colour-3;
+
+    h1, h2, .slug, .author {
+        color: $colour-2;
+    }
 
     .headline-container {
-
+        position: relative;
         max-width: $two-thirds-width;
         width: 100%;
         padding: 0 $section-padding-sides-small;
+        z-index: 20;
     }
 
     h1 {
         font-family: acumin-pro, sans-serif;
-        font-size: 4rem;
+        font-size: 3.2rem;
         font-weight: 700;
         line-height: 1.1em;
         margin-bottom: 0.5em;
@@ -133,7 +164,7 @@ header {
     h2 {
         font-family: 'Work Sans', sans-serif;
         font-weight: 400;
-        font-size: 2.4rem;
+        font-size: 2rem;
         line-height: 1.2em;
         margin-bottom: 1em;
     }
@@ -225,7 +256,14 @@ blockquote {
     padding-bottom: 2.4rem;
 
     @media(min-width: $breakpoint-3) {
-        .quote-text {font-size: 3rem;}
+        .source {
+            max-width: 75%;
+        }
+        .quote-text {
+            font-size: 3rem;
+            line-height: 1.3em;
+        }
+        .quote-author {font-size: 2rem;}
         margin-left: 0;
         width: 100%;
     }
@@ -233,6 +271,7 @@ blockquote {
     @media(min-width: $breakpoint-2) {
         flex-direction: row-reverse;
         padding-bottom: 0;
+        .source {max-width: 100%;}
     }
 
     p {
@@ -254,16 +293,16 @@ blockquote {
 }
 
 .quote-text {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 400;
-    line-height: 1.3em;
+    line-height: 1.5em;
     margin-bottom: 0.6em;
 }
 
 .quote-author {
     font-family: acumin-pro, sans-serif;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0;
 }
@@ -271,6 +310,7 @@ blockquote {
 .source {
 
     padding-left: $main-inner-padding;
+    max-width: 100%;
 
     @media(min-width:$breakpoint-2){
         position: absolute;
@@ -322,18 +362,27 @@ sup {
 
     padding-top: 4rem;
     padding-bottom: 4.5rem;
+    max-width: 100%;
+    align-self: flex-start;
 
     p {
         font-family: 'Work Sans', sans-serif;
         font-weight: 500;
-        font-size: 2.4rem;
+        font-size: 2.2rem;
         max-width: 100%;
         padding: 0 $section-padding-sides-small;
     }
 
     @media (min-width: $breakpoint-3) {
+        //* padding: 0 0;
+        p {
+            font-size: 3rem;
         padding: 0 0;
-        p {font-size: 3.6rem;}
+        }
+    }
+
+    @media (min-width: $breakpoint-2) {
+        max-width: 83.3%;
     }
 }
 
@@ -398,9 +447,37 @@ sup {
     position: absolute;
     right: 0;
     top: 0;
-    background-color: #d6d6d6;
-    width: 50%;
+    width: 100%;
     height: 100%;
     margin: 0;
-    z-index: -10;
+    z-index: 10;
+
+    .image-wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .image-overlay {
+        background-color: $colour-3;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        //* mix-blend-mode: overlay;
+        opacity: 65%;
+    }
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media(min-width: $breakpoint-2) {
+        width: 50%;
+        justify-content: flex-end;
+
+    }
 }
