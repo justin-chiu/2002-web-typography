@@ -333,6 +333,11 @@ blockquote {
     margin-left: $section-padding-sides-small;
     padding-bottom: 2.4rem;
 
+    .source {
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+
     @media(min-width: $breakpoint-3) {
         .source {
             max-width: 75%;
@@ -388,11 +393,18 @@ blockquote {
 .source {
     position: relative;
     padding-left: $main-inner-padding;
+    margin-left: $section-padding-sides-small;
+    margin-bottom: 2.4rem;
     max-width: 100%;
+    align-self: flex-start;
 
     p {
         max-width: 100%;
         padding-left: 0;
+    }
+
+    @media(min-width:$breakpoint-3){
+        margin-left: 0;
     }
 
     @media(min-width:$breakpoint-2){
@@ -401,6 +413,7 @@ blockquote {
         left: 0;
         width: $col-1;
         padding-right: $main-inner-padding;
+        margin-bottom: 0;
     }
     //* p {opacity: 0;}
 
