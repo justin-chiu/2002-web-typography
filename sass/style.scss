@@ -146,7 +146,6 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-top: 4.8rem;
     padding-bottom: 7.2rem;
     /* border-bottom-style: solid;
     border-bottom-width: 1px; */
@@ -211,6 +210,7 @@ header {
         }
         h2 {font-size: 3.2rem;}
         .headline-container{max-width: $main-width;}
+        padding-top: 4.8rem;
     }
 
     @media(min-width: $breakpoint-1){
@@ -224,13 +224,20 @@ header {
 }
 
 .image-headline {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    
+    position: relative;
     margin: 0;
-    z-index: 10;
+    padding-bottom: 4.8rem;
+
+    @media(min-width: $breakpoint-2) {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        padding-bottom: 0;
+    }
 
     .image-wrapper {
         width: 100%;
@@ -379,9 +386,14 @@ blockquote {
 }
 
 .source {
-
+    position: relative;
     padding-left: $main-inner-padding;
     max-width: 100%;
+
+    p {
+        max-width: 100%;
+        padding-left: 0;
+    }
 
     @media(min-width:$breakpoint-2){
         position: absolute;
@@ -389,9 +401,7 @@ blockquote {
         left: 0;
         width: $col-1;
         padding-right: $main-inner-padding;
-        padding-left: 0;
     }
-    
     //* p {opacity: 0;}
 
     .source-ref {
@@ -399,15 +409,26 @@ blockquote {
     }
 }
 
-.source-number {
+/*.source-number {
     font-size: 3rem;
     line-height: 1.3em;
     margin-bottom: 0.6em;
     font-weight: 500;
+}*/
+
+.source-circle {
+    position: absolute;
+    top: 0.5em;
+    left: -0.8rem;
+    border-radius: 50%;
+    background-color: $colour-6;
+    width: 1.6rem;
+    height: 1.6rem;
 }
 
 .source-text {
     font-size: 1.65rem;
+    line-height: 1.5em;
     font-weight: 500;
     &.outdent {text-indent: -0.43em;}
 }
@@ -487,7 +508,7 @@ blockquote {
     p {padding: 0 $section-padding-sides-small;}
 
     @media (min-width: $breakpoint-3) {
-        p {padding-left: 0;}
+        p {padding-left: $main-inner-padding;}
     }
 
     @media (min-width: $breakpoint-2) {
@@ -501,10 +522,11 @@ blockquote {
         figcaption {
             width: $col-1;
             padding-right: $main-inner-padding;
+            margin-top: 0;
         }
         display: flex;
         flex-direction: row-reverse;
-        align-items: flex-end;
+        //*align-items: flex-end;
     }
 }
 
@@ -516,7 +538,7 @@ blockquote {
         p {padding: 0 $section-padding-sides-small;}
 
         @media(min-width: $breakpoint-3) {
-            p {padding-left: 0;}
+            p {padding-left: $main-inner-padding;}
         }
         @media(min-width: $breakpoint-2){
             position: absolute;
